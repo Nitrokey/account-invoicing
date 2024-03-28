@@ -9,7 +9,7 @@ class AccountMove(models.Model):
         if self.invoice_date or not self.move_type.endswith("_invoice"):
             self.action_post()
         else:
-            name = _(f"Confirm {self.type_name}")
+            name = _("Confirm %s") % self.type_name
             action = self.env.ref(
                 "account_invoice_date.view_account_voucher_proforma_date"
             )
